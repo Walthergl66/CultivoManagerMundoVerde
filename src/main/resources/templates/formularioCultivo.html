@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Nuevo Cultivo</title>
+    <link rel="icon" href="../static/favicon.ico" type="image/x-icon">
+</head>
+<body>
+<h1>Ingresar nuevo cultivo</h1>
+
+<form th:action="@{/cultivos/guardar}" th:object="${cultivo}" method="post">
+    <label>Nombre:</label>
+    <input type="text" th:field="*{nombre}" required /><br/>
+
+    <label>Tipo de planta:</label>
+    <input type="text" th:field="*{tipoPlanta}" required /><br/>
+
+    <label>Zona:</label>
+    <input type="text" th:field="*{zona}" required /><br/>
+
+    <label>Fecha de siembra:</label>
+    <input type="date" th:field="*{fechaSiembra}" required /><br/>
+
+    <button type="submit">Guardar</button>
+</form>
+
+<a th:href="@{/cultivos/lista}">Ver lista de cultivos</a>
+</body>
+</html>
