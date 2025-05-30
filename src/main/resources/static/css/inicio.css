@@ -1,14 +1,7 @@
 /* Fuente natural y moderna */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
 
-body {
-    background: url('../img/cultivo.jpg') no-repeat center center fixed;
-    background-size: cover;
-    font-family: 'Nunito', sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #2e3e2e;
-}
+
 
 .welcome-box {
     background: rgba(255, 255, 245, 0.8); /* crema claro */
@@ -28,7 +21,6 @@ body {
 
 .leaf-icon {
     font-size: 3.5rem;
-    color: #4caf50;
     margin-bottom: 10px;
 }
 

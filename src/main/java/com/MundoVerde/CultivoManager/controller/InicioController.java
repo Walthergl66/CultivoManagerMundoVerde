@@ -10,6 +10,6 @@ public class InicioController {
     @GetMapping("/")
     // @ResponseBody
     public String inicio() {
-        return "inicio"; // Carga el archivo inicio.html desde templates
+        return "inicio"; 
     }
 }
