@@ -25,8 +25,9 @@ public class UsuarioController {
 
     @PostMapping
     public Usuario crearUsuario(@RequestBody Usuario usuario) {
-        return usuarioService.guardar(usuario);
+        return usuarioService.crearUsuario(usuario);
     }
+
 
     @DeleteMapping("/{id}")
     public void eliminarUsuario(@PathVariable Long id) {

@@ -22,6 +22,10 @@ public class CultivoService {
         return cultivoRepository.save(cultivo);
     }
 
+    public Cultivo obtenerPorId(Long id) {
+        return cultivoRepository.findById(id).orElse(null);
+    }
+
     public void eliminar(Long id) {
         cultivoRepository.deleteById(id);
     }
