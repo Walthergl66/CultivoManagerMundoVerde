@@ -1,10 +1,10 @@
 
-package com.MundoVerde.CultivoManager.Cultivo.service;
+package com.MundoVerde.CultivoManager.service;
 
-// import com.MundoVerde.CultivoManager.Cultivo.entity.Usuario;
-import com.MundoVerde.CultivoManager.Cultivo.repository.UsuarioRepository;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.stereotype.Service;
+
+import com.MundoVerde.CultivoManager.repository.UsuarioRepository;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {

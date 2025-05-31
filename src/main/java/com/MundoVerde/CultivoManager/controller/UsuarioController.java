@@ -1,10 +1,12 @@
-package com.MundoVerde.CultivoManager.Cultivo.controller;
+package com.MundoVerde.CultivoManager.controller;
 
-import com.MundoVerde.CultivoManager.Cultivo.entity.Usuario;
-import com.MundoVerde.CultivoManager.Cultivo.service.UsuarioService;
 // import org.springframework.stereotype.Controller;
 // import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import com.MundoVerde.CultivoManager.entity.Usuario;
+import com.MundoVerde.CultivoManager.service.UsuarioService;
+
 import java.util.List;
 
 

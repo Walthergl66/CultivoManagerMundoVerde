@@ -1,7 +1,8 @@
-package com.MundoVerde.CultivoManager.Cultivo.repository;
+package com.MundoVerde.CultivoManager.repository;
 
-import com.MundoVerde.CultivoManager.Cultivo.entity.Cultivo;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.MundoVerde.CultivoManager.entity.Cultivo;
 
 public interface CultivoRepository extends JpaRepository<Cultivo, Long> {
 }

@@ -1,4 +1,4 @@
-package com.MundoVerde.CultivoManager.Cultivo.entity;
+package com.MundoVerde.CultivoManager.entity;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 
@@ -13,6 +13,11 @@ public class Cultivo {
     private String tipoPlanta;
     private String zona;
     private LocalDate fechaSiembra;
+
+    // Constructor por defecto
+    public Cultivo() {
+        this.fechaSiembra = LocalDate.now();
+    }
 
     // Getters y Setters
 

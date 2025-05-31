@@ -1,8 +1,10 @@
-package com.MundoVerde.CultivoManager.Cultivo.service;
+package com.MundoVerde.CultivoManager.service;
 
-import com.MundoVerde.CultivoManager.Cultivo.entity.Usuario;
-import com.MundoVerde.CultivoManager.Cultivo.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
+
+import com.MundoVerde.CultivoManager.entity.Usuario;
+import com.MundoVerde.CultivoManager.repository.UsuarioRepository;
+
 import java.util.List;
 //importacion para la incriptacion de la contraseña
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
