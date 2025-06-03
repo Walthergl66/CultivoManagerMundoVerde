@@ -1,6 +1,6 @@
 package com.MundoVerde.CultivoManager.controller;
 
-import com.MundoVerde.CultivoManager.entities.ZonaCultivo;
+import com.MundoVerde.CultivoManager.domain.ZonaCultivo;
 import com.MundoVerde.CultivoManager.service.ZonaCultivoService;
 
 import org.springframework.http.ResponseEntity;

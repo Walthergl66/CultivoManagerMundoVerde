@@ -5,7 +5,7 @@ package com.MundoVerde.CultivoManager.controller;
 // import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import com.MundoVerde.CultivoManager.entities.Cultivo;
+import com.MundoVerde.CultivoManager.domain.Cultivo;
 import com.MundoVerde.CultivoManager.service.CultivoService;
 
 import java.util.List;

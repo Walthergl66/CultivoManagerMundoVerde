@@ -2,7 +2,7 @@ package com.MundoVerde.CultivoManager.service;
 
 import org.springframework.stereotype.Service;
 
-import com.MundoVerde.CultivoManager.entities.Usuario;
+import com.MundoVerde.CultivoManager.domain.Usuario;
 import com.MundoVerde.CultivoManager.repositories.UsuarioRepository;
 
 import java.util.List;

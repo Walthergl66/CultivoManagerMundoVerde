@@ -1,6 +1,6 @@
 package com.MundoVerde.CultivoManager.service;
 
-import com.MundoVerde.CultivoManager.entities.Riego;
+import com.MundoVerde.CultivoManager.domain.Riego;
 import com.MundoVerde.CultivoManager.repositories.RiegoRepository;
 import org.springframework.stereotype.Service;
 

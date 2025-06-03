@@ -1,4 +1,4 @@
-package com.MundoVerde.CultivoManager.entities;
+package com.MundoVerde.CultivoManager.domain;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
