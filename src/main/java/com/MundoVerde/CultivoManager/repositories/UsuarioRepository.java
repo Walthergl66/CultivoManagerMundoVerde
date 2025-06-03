@@ -1,8 +1,8 @@
-package com.MundoVerde.CultivoManager.repository;
+package com.MundoVerde.CultivoManager.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.MundoVerde.CultivoManager.entity.Usuario;
+import com.MundoVerde.CultivoManager.entities.Usuario;
 
 import java.util.Optional;
 

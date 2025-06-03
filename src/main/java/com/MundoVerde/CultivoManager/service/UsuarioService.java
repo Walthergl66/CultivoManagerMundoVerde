@@ -2,8 +2,8 @@ package com.MundoVerde.CultivoManager.service;
 
 import org.springframework.stereotype.Service;
 
-import com.MundoVerde.CultivoManager.entity.Usuario;
-import com.MundoVerde.CultivoManager.repository.UsuarioRepository;
+import com.MundoVerde.CultivoManager.entities.Usuario;
+import com.MundoVerde.CultivoManager.repositories.UsuarioRepository;
 
 import java.util.List;
 //importacion para la incriptacion de la contraseña

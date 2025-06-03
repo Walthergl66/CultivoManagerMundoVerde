@@ -1,4 +1,4 @@
-package com.MundoVerde.CultivoManager.entity;
+package com.MundoVerde.CultivoManager.entities;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 
