@@ -1,4 +1,4 @@
-package com.MundoVerde.CultivoManager.domain;
+package com.MundoVerde.CultivoManager.Models;
 
 import jakarta.persistence.*;
 import java.util.List;

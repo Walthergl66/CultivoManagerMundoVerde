@@ -1,11 +1,9 @@
 
 package com.MundoVerde.CultivoManager.controller;
-
-// import org.springframework.stereotype.Controller;
-// import org.springframework.ui.Model;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.MundoVerde.CultivoManager.domain.Cultivo;
+import com.MundoVerde.CultivoManager.Models.Cultivo;
 import com.MundoVerde.CultivoManager.service.CultivoService;
 
 import java.util.List;
@@ -25,9 +23,14 @@ public class CultivoController {
     }
 
     @GetMapping("/{id}")
-    public Cultivo obtenerPorId(@PathVariable Long id) {
-        return cultivoService.obtenerPorId(id);
+    public ResponseEntity<Cultivo> obtenerPorId(@PathVariable Long id) {
+        Cultivo cultivo = cultivoService.obtenerPorId(id);
+        if (cultivo == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(cultivo);
     }
+
 
     @PostMapping
     public Cultivo crearCultivo(@RequestBody Cultivo cultivo) {
@@ -45,10 +48,12 @@ public class CultivoController {
     }
 
 
-    @DeleteMapping("/{id}")
-    public void eliminarCultivo(@PathVariable Long id) {
+   @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminarCultivo(@PathVariable Long id) {
         cultivoService.eliminar(id);
+        return ResponseEntity.noContent().build();
     }
+
 }
 
 

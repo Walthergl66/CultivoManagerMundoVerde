@@ -1,24 +1,25 @@
-package com.MundoVerde.CultivoManager.domain;
+package com.MundoVerde.CultivoManager.Models;
+
+import jakarta.persistence.*;
+import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-import jakarta.persistence.*;
-
 @Entity
-@Table(name = "sensores")
-public class Sensor {
+@Table(name = "riegos")
+public class Riego {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String tipo; // Ej: "Humedad", "Temperatura", etc.
+    private Double cantidadAgua; // en litros
 
-    private String modelo;
+    private LocalDateTime fechaHora;
 
-    private String unidadMedida;
+    private String metodo; // Ej: "Aspersión", "Goteo", etc.
 
     @ManyToOne
     @JoinColumn(name = "zona_cultivo_id", nullable = false)
@@ -27,7 +28,9 @@ public class Sensor {
     private ZonaCultivo zonaCultivo;
 
     // Constructor por defecto
-    public Sensor() {}
+    public Riego() {
+        this.fechaHora = LocalDateTime.now();
+    }
 
     // Getters y Setters
 
@@ -35,17 +38,17 @@ public class Sensor {
 
     public void setId(Long id) { this.id = id; }
 
-    public String getTipo() { return tipo; }
+    public Double getCantidadAgua() { return cantidadAgua; }
 
-    public void setTipo(String tipo) { this.tipo = tipo; }
+    public void setCantidadAgua(Double cantidadAgua) { this.cantidadAgua = cantidadAgua; }
 
-    public String getModelo() { return modelo; }
+    public LocalDateTime getFechaHora() { return fechaHora; }
 
-    public void setModelo(String modelo) { this.modelo = modelo; }
+    public void setFechaHora(LocalDateTime fechaHora) { this.fechaHora = fechaHora; }
 
-    public String getUnidadMedida() { return unidadMedida; }
+    public String getMetodo() { return metodo; }
 
-    public void setUnidadMedida(String unidadMedida) { this.unidadMedida = unidadMedida; }
+    public void setMetodo(String metodo) { this.metodo = metodo; }
 
     public ZonaCultivo getZonaCultivo() { return zonaCultivo; }
 

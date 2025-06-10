@@ -1,7 +1,8 @@
 package com.MundoVerde.CultivoManager.service;
 
-import com.MundoVerde.CultivoManager.domain.Riego;
-import com.MundoVerde.CultivoManager.repositories.RiegoRepository;
+import com.MundoVerde.CultivoManager.Models.Riego;
+import com.MundoVerde.CultivoManager.repository.RiegoRepository;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;

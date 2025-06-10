@@ -1,6 +1,6 @@
 package com.MundoVerde.CultivoManager.controller;
 
-import com.MundoVerde.CultivoManager.domain.Sensor;
+import com.MundoVerde.CultivoManager.Models.Sensor;
 import com.MundoVerde.CultivoManager.service.SensorService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

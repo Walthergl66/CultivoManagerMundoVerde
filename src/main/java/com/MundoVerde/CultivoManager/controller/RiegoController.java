@@ -1,6 +1,6 @@
 package com.MundoVerde.CultivoManager.controller;
 
-import com.MundoVerde.CultivoManager.domain.Riego;
+import com.MundoVerde.CultivoManager.Models.Riego;
 import com.MundoVerde.CultivoManager.service.RiegoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

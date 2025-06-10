@@ -1,25 +1,24 @@
-package com.MundoVerde.CultivoManager.domain;
-
-import jakarta.persistence.*;
-import java.time.LocalDateTime;
+package com.MundoVerde.CultivoManager.Models;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
+import jakarta.persistence.*;
+
 @Entity
-@Table(name = "riegos")
-public class Riego {
+@Table(name = "sensores")
+public class Sensor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Double cantidadAgua; // en litros
+    private String tipo; // Ej: "Humedad", "Temperatura", etc.
 
-    private LocalDateTime fechaHora;
+    private String modelo;
 
-    private String metodo; // Ej: "Aspersión", "Goteo", etc.
+    private String unidadMedida;
 
     @ManyToOne
     @JoinColumn(name = "zona_cultivo_id", nullable = false)
@@ -28,9 +27,7 @@ public class Riego {
     private ZonaCultivo zonaCultivo;
 
     // Constructor por defecto
-    public Riego() {
-        this.fechaHora = LocalDateTime.now();
-    }
+    public Sensor() {}
 
     // Getters y Setters
 
@@ -38,17 +35,17 @@ public class Riego {
 
     public void setId(Long id) { this.id = id; }
 
-    public Double getCantidadAgua() { return cantidadAgua; }
+    public String getTipo() { return tipo; }
 
-    public void setCantidadAgua(Double cantidadAgua) { this.cantidadAgua = cantidadAgua; }
+    public void setTipo(String tipo) { this.tipo = tipo; }
 
-    public LocalDateTime getFechaHora() { return fechaHora; }
+    public String getModelo() { return modelo; }
 
-    public void setFechaHora(LocalDateTime fechaHora) { this.fechaHora = fechaHora; }
+    public void setModelo(String modelo) { this.modelo = modelo; }
 
-    public String getMetodo() { return metodo; }
+    public String getUnidadMedida() { return unidadMedida; }
 
-    public void setMetodo(String metodo) { this.metodo = metodo; }
+    public void setUnidadMedida(String unidadMedida) { this.unidadMedida = unidadMedida; }
 
     public ZonaCultivo getZonaCultivo() { return zonaCultivo; }
 

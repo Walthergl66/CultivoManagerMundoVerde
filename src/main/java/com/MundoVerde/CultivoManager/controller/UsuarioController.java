@@ -1,10 +1,12 @@
 package com.MundoVerde.CultivoManager.controller;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 // import org.springframework.stereotype.Controller;
 // import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import com.MundoVerde.CultivoManager.domain.Usuario;
+import com.MundoVerde.CultivoManager.Models.Usuario;
 import com.MundoVerde.CultivoManager.service.UsuarioService;
 
 import java.util.List;
@@ -25,16 +27,31 @@ public class UsuarioController {
         return usuarioService.obtenerTodos();
     }
 
-    @PostMapping
-    public Usuario crearUsuario(@RequestBody Usuario usuario) {
-        return usuarioService.crearUsuario(usuario);
+    @GetMapping("/{email}")
+    public ResponseEntity<Usuario> getUsuarioPorEmail(@PathVariable String email) {
+        Usuario usuario = usuarioService.buscarPorEmail(email);
+        if (usuario == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(usuario);
     }
 
+
+    @PostMapping
+    // public Usuario crearUsuario(@RequestBody Usuario usuario) {
+    //     return usuarioService.crearUsuario(usuario);
+    // }
+    public ResponseEntity<Usuario> crearUsuario(@RequestBody Usuario usuario) {
+       Usuario creado = usuarioService.crearUsuario(usuario);
+       return ResponseEntity.status(HttpStatus.CREATED).body(creado);
+    }
 
     @DeleteMapping("/{id}")
     public void eliminarUsuario(@PathVariable Long id) {
         usuarioService.eliminar(id);
     }
+
+    
 }
 
 

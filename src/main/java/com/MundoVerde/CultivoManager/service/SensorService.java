@@ -1,7 +1,8 @@
 package com.MundoVerde.CultivoManager.service;
 
-import com.MundoVerde.CultivoManager.domain.Sensor;
-import com.MundoVerde.CultivoManager.repositories.SensorRepository;
+import com.MundoVerde.CultivoManager.Models.Sensor;
+import com.MundoVerde.CultivoManager.repository.SensorRepository;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
