@@ -224,3 +224,5 @@ src/
 - Personaliza la clave JWT en producción.
 - Usa `@AutoConfigureMockMvc(addFilters = false)` en tests si deseas omitir filtros de seguridad.
 - Las entidades usan `LocalDate` como tipo de fecha, asegurando soporte con Jackson (`jsr310`).
+
+# Se agradece
