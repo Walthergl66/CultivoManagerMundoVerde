@@ -26,7 +26,12 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/auth/**").permitAll() // permite endpoints de autenticación
+                .requestMatchers(
+                    "/auth/**",
+                    "/v3/api-docs/**",
+                    "/swagger-ui/**",
+                    "/swagger-ui.html"
+                ).permitAll()
                 .anyRequest().authenticated()
             )
             .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
@@ -44,47 +49,3 @@ public class SecurityConfig {
         return config.getAuthenticationManager();
     }
 }
-
-
-
-
-
-
-
-
-//Para la implementacion de un front proximamente
-// @Configuration
-// public class SecurityConfig {
-
-//     private final CustomUserDetailsService customUserDetailsService;
-
-//     public SecurityConfig(CustomUserDetailsService customUserDetailsService) {
-//         this.customUserDetailsService = customUserDetailsService;
-//     }
-
-//     @Bean
-//     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//         http
-//             .csrf().disable()
-//             .authorizeHttpRequests(auth -> auth
-//                 .requestMatchers("").permitAll() // Rutas públicas
-//                 .anyRequest().authenticated()
-//             )
-//             .formLogin(form -> form
-//                 .loginPage("/login").permitAll()
-//             )
-//             .logout(logout -> logout.permitAll());
-
-//         return http.build();
-//     }
-
-//     @Bean
-//     public UserDetailsService userDetailsService() {
-//         return customUserDetailsService;
-//     }
-
-//     @Bean
-//     public PasswordEncoder passwordEncoder() {
-//         return new BCryptPasswordEncoder();
-//     }
-// }
