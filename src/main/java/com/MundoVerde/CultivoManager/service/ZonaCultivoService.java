@@ -29,6 +29,20 @@ public class ZonaCultivoService {
         return zonaCultivoRepository.save(zona);
     }
 
+    public ZonaCultivo create(ZonaCultivo zona) {
+        // Asegurar que sea una nueva entidad
+        zona.setId(null);
+        return zonaCultivoRepository.save(zona);
+    }
+
+    public ZonaCultivo update(Long id, ZonaCultivo zona) {
+        if (zonaCultivoRepository.existsById(id)) {
+            zona.setId(id);
+            return zonaCultivoRepository.save(zona);
+        }
+        throw new RuntimeException("ZonaCultivo no encontrada con ID: " + id);
+    }
+
     public void delete(Long id) {
         zonaCultivoRepository.deleteById(id);
     }

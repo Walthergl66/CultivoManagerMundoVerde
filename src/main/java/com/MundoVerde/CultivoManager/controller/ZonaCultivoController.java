@@ -31,18 +31,25 @@ public class ZonaCultivoController {
     }
 
     @PostMapping
-    public ZonaCultivo create(@RequestBody ZonaCultivo zona) {
-        return zonaCultivoService.save(zona);
+    public ResponseEntity<ZonaCultivo> create(@RequestBody ZonaCultivo zona) {
+        try {
+            ZonaCultivo nuevaZona = zonaCultivoService.create(zona);
+            return ResponseEntity.ok(nuevaZona);
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<ZonaCultivo> update(@PathVariable Long id, @RequestBody ZonaCultivo zona) {
-        return zonaCultivoService.getById(id)
-                .map(existing -> {
-                    zona.setId(id);
-                    return ResponseEntity.ok(zonaCultivoService.save(zona));
-                })
-                .orElse(ResponseEntity.notFound().build());
+        try {
+            ZonaCultivo zonaActualizada = zonaCultivoService.update(id, zona);
+            return ResponseEntity.ok(zonaActualizada);
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
     }
 
     @DeleteMapping("/{id}")

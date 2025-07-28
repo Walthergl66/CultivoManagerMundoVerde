@@ -1,6 +1,7 @@
 package com.MundoVerde.CultivoManager.Models;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.List;
 
 @Entity
@@ -20,9 +21,11 @@ public class ZonaCultivo {
 
     private String cultivoActual;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "zonaCultivo", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Sensor> sensores;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "zonaCultivo", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Riego> riegos;
 

@@ -15,10 +15,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class SecurityConfig {
 
-    private final JwtAuthenticationFilter jwtAuthenticationFilter;
+    // Comentamos la dependencia JWT para desactivarla
+    // private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
-    public SecurityConfig(JwtAuthenticationFilter jwtAuthenticationFilter) {
-        this.jwtAuthenticationFilter = jwtAuthenticationFilter;
+    public SecurityConfig() {
+        // Constructor vacío ya que no usamos JWT
     }
     
     @Bean
@@ -27,26 +28,10 @@ public class SecurityConfig {
             .csrf(AbstractHttpConfigurer::disable)
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers(
-                    "/auth/**",
-                    "/v3/api-docs/**",
-                    "/swagger-ui/**",
-                    "/swagger-ui.html",
-                    "/ws/**",
-                    "/topic/**",
-                    "/**/*.html",
-                    "/**/*.css",
-                    "/**/*.js",
-                    "/**/*.png",
-                    "/**/*.jpg",
-                    "/**/*.jpeg",
-                    "/**/*.gif",
-                    "/**/*.svg",
-                    "/**/*.ico"
-                ).permitAll()
-                .anyRequest().authenticated()
-            )
-            .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+                .anyRequest().permitAll() // Permitir acceso a todos los endpoints sin autenticación
+            );
+            // Removemos el filtro JWT
+            // .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
